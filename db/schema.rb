@@ -13,13 +13,27 @@
 ActiveRecord::Schema.define(version: 20200924142826) do
 
   create_table "recruits", force: :cascade do |t|
+    t.integer  "team_id",    null: false
+    t.integer  "prefecture", null: false
+    t.string   "address",    null: false
+    t.integer  "level_type", null: false
+    t.datetime "start_at",   null: false
+    t.datetime "end_at",     null: false
+    t.text     "comment",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",            null: false
+    t.string   "leader_name",     null: false
+    t.string   "phone_number",    null: false
+    t.string   "email",           null: false
+    t.integer  "level_type",      null: false
+    t.string   "password_digest", null: false
+    t.string   "image"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
