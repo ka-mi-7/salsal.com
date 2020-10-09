@@ -153,6 +153,20 @@
             <td>宜しくお願い致します！</td>
             <td></td>
           </tr>
+          <% @recruits.each do |recruit| %>
+            <tr>
+              <td><%= recruit.team.name %></td>
+              <td>
+                <% recruit.level_type.times do %>
+                  ★
+                <% end %>
+              </td>
+              <td><%= recruit.address %></td>
+              <td><%= recruit.start_at %> ~ <%= recruit.end_at %></td>
+              <td><%= recruit.comment %></td>
+              <td></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
       <div class="row">
