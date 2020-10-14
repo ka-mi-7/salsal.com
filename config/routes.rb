@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :users
   get 'recruits/new'
+  
+  resources :teams, only: [:new, :create]
 
-  get 'teams/new'
-
-  get 'home/top'
+  root to: 'home#top'
   
   get '/recruits/:id'=>'recruits#show'
 
