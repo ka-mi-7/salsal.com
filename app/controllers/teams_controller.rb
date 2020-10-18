@@ -4,11 +4,12 @@ class TeamsController < ApplicationController
   end
   
     def create
-    @team = Teams.new(teams_params)
-    if @team.save
-      redirect_to root_path
-    else
-      render new
+        @team=Team.new(team_params)
+      if @team.save
+          redirect_to root_path
+      else
+        render:new
+      end
     end
     
     private
@@ -17,4 +18,3 @@ class TeamsController < ApplicationController
       params.require(:team).permit(:name,:leader_name,:phone_number,:email,:level_type,:password_digest,:image)
     end  
   end
-end
