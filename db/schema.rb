@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20200924142826) do
 
   create_table "recruits", force: :cascade do |t|
     t.integer  "team_id",    null: false
-    t.integer  "prefecture", null: false
+    t.string   "prefecture", null: false
     t.string   "address",    null: false
     t.integer  "level_type", null: false
     t.datetime "start_at",   null: false

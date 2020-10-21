@@ -11,17 +11,17 @@
   </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-5 mt-4 mr-5">
+        <div class="col-md-5 mt-4 mr-5 text-white">
           <h2 class="p-3">・チーム名</h2>
-            <p class="pl-5"><%= @recruit.team.name %></p>
+            <h4 class="pl-5 mb-5 "><%= @recruit.team.name %></h4>
           <h2 class="p-3">・日時</h2>
-            <p class="pl-5"><%= @recruit.start_at.strftime("%Y/%m/%d %H:%M") %> ~ <%= @recruit.end_at.strftime("%H:%M")%></p>
+            <p class="pl-5 mb-5"><%= @recruit.start_at.strftime("%Y/%m/%d %H:%M") %> ~ <%= @recruit.end_at.strftime("%H:%M")%></p>
           <h2 class="p-3">・エリア</h2>
-            <p class="pl-5"><%= @recruit.address %></p>
+            <p class="pl-5 mb-5"><%= @recruit.prefecture %><%= @recruit.address %></p>
           <h2 class="p-3">・チームレベル</h2>
-            <p class="pl-5"><% @recruit.level_type.times do %>★<% end %></p>
+            <p class="pl-5 mb-5"><% @recruit.level_type.times do %>★<% end %></p>
           <h2 class="p-3">・コメント</h2>
-            <p class="pl-5"><%= @recruit.comment %></p>
+            <p class="pl-5 mb-5"><%= @recruit.comment %></p>
         </div>
         <div class="col-md-5 mt-5 ">
             <img src="/team A.jpg" alt="チーム写真">

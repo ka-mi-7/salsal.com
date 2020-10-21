@@ -40,7 +40,7 @@ end
   {
     id: 1,
     team_id: 1,
-    prefecture: 1,
+    prefecture: '東京都',
     address: '新宿区',
     level_type: 1,
     start_at: Time.zone.parse('2020-10-08 19:00:00'),
@@ -51,7 +51,7 @@ end
   {
     id: 2,
     team_id: 2,
-    prefecture: 2,
+    prefecture: "東京都",
     address: '新宿区',
     level_type: 1,
     start_at: Time.zone.parse('2020-10-08 19:00:00'),
