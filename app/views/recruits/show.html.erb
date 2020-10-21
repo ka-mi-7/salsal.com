@@ -9,15 +9,23 @@
   <div class="text-center mx-auto bg-primary py-2 shadow col-3 rounded mt-4">
     <h1 class="pt-2">対戦相手DATA</h1>
   </div>
-  <div class="container">
-    <div class="col-md-6 mt-4 ">
-      <h2 class="p-3 mb-2">・チーム名</h2>
-      <h2 class="p-3 mb-2">・日時</h2>
-      <h2 class="p-3 mb-2">・エリア</h2>
-      <h2 class="p-3 mb-2">・チームレベル</h2>
-      <h2 class="p-3 mb-2">・コメント</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mt-4 mr-5">
+          <h2 class="p-3">・チーム名</h2>
+            <p class="pl-5"><%= @recruit.team.name %></p>
+          <h2 class="p-3">・日時</h2>
+            <p class="pl-5"><%= @recruit.start_at.strftime("%Y/%m/%d %H:%M") %> ~ <%= @recruit.end_at.strftime("%H:%M")%></p>
+          <h2 class="p-3">・エリア</h2>
+            <p class="pl-5"><%= @recruit.address %></p>
+          <h2 class="p-3">・チームレベル</h2>
+            <p class="pl-5"><% @recruit.level_type.times do %>★<% end %></p>
+          <h2 class="p-3">・コメント</h2>
+            <p class="pl-5"><%= @recruit.comment %></p>
+        </div>
+        <div class="col-md-5 mt-5 ">
+            <img src="/team A.jpg" alt="チーム写真">
+        </div>  
+      </div> 
     </div>
   </div>
-  
-</div>
-  

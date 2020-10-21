@@ -155,14 +155,14 @@
           </tr>
           <% @recruits.each do |recruit| %>
             <tr>
-              <td><%= recruit.team.name %></td>
+              <td><%= link_to recruit_path(recruit) do %><%= recruit.team.name %><% end %></td>
               <td>
                 <% recruit.level_type.times do %>
                   ★
                 <% end %>
               </td>
               <td><%= recruit.address %></td>
-              <td><%= recruit.start_at %> ~ <%= recruit.end_at %></td>
+              <td><%= recruit.start_at.strftime("%Y/%m/%d %H:%M") %> ~ <%= recruit.end_at.strftime("%H:%M") %></td>
               <td><%= recruit.comment %></td>
               <td></td>
             </tr>
@@ -176,7 +176,7 @@
         </div>
         <div class="col">
         </div>
-        <%= link_to recruits_new_path do %> 
+        <%= link_to new_recruit_path do %> 
         <button type="button" class="btn btn-warning mt-2 shadow btn-lg">対戦相手募集へ</button>
         <% end %>
       </div>  
