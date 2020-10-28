@@ -4,11 +4,25 @@ class RecruitsController < ApplicationController
   end
 
   def new
+    @recruit = Recruit.new
   end
   
   def show
-    @recruit = Recruit.find(params[:id])
+    @recruits = Recruit.find(params[:id])
   end
   
+  def create
+    @recruit = Recruit.new(recruit_params)
+    if @recruit.save
+      redirect_to root_path
+    else
+      render:new
+    end
+  end
+    
+  private
   
+  def recruit_params
+    params.require(:recruit).permit(:team_id, :prefecture, :address, :level_type, :start_at, :end_at, :comment)
+  end  
 end

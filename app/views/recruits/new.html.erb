@@ -10,14 +10,14 @@
       <h1 class="pt-2">対戦相手募集</h1>
     </div>
     <div class="container">
-      <%= form_for(@recruits) do |f| %>  
+      <%= form_for(@recruit) do |f| %>  
         <div class="form-group h4 col-7 p-0 text-white">
             <label for="exampleFormControlInput1">チーム名</label>
-            <%= f.text_field :name,class:'form-control form-control-lg', placeholder: "チーム名" %>
+            <%= f.text_field :team_id, class: 'form-control form-control-lg', placeholder: "チーム名" %>
         </div>
         <div class="form-group h4 col-7 p-0 text-white ">
           <label for="pref">都道府県</label> 
-            <select class="form-control form-control-lg" id="pref">
+            <select class="form-control form-control-lg" id="pref" name="recruit[prefecture]">
               <option value="">都道府県</option>
                 <% prefectures.each do |p| %>
                   <option value="<%= p %>"><%= p %></option>
@@ -26,11 +26,11 @@
         </div>
         <div class="form-group h4 col-7 p-0 text-white">
             <label for="exampleFormControlInput1">エリア</label>
-            <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="市町村">
+            <%= f.text_field :address, class: 'form-control form-control-lg', placeholder: "エリア" %>        
         </div>
         <div class="form-group h4 col-7 p-0 text-white">
             <label for="exampleFormControlInput1">チームレベル</label>
-          <select class="form-control form-control-lg" id="pref">
+          <select class="form-control form-control-lg" id="pref" name="recruit[level_type]">
               <option value="1">★</option>
               <option value="2">★★</option>
               <option value="3">★★★</option>
@@ -40,15 +40,15 @@
         </div>
         <div class="form-group h4 col-7 p-0 text-white">
           <label for="exampleFormControlInput1">開始日時</label>
-          <input type="datetime-local" class="form-control form-control-lg" id="exampleFormControlInput1">
+          <input type="datetime-local" class="form-control form-control-lg" id="exampleFormControlInput1" name="recruit[start_at]">
         </div>
         <div class="form-group h4 col-7 p-0 text-white">
           <label for="exampleFormControlInput1">終了日時</label>
-          <input type="datetime-local" class="form-control form-control-lg" id="exampleFormControlInput1">
+          <input type="datetime-local" class="form-control form-control-lg" id="exampleFormControlInput1" name="recruit[end_at]">
         </div>
         <div class="form-group h4 col-10 p-0 text-white">
           <label for="exampleFormControlTextarea1">一言コメント</label>
-          <textarea class="form-control form-control-lg" id="exampleFormControlTextarea1" rows="4"></textarea>
+          <textarea class="form-control form-control-lg" id="exampleFormControlTextarea1" rows="4" name="recruit[comment]"></textarea>
         </div>
         <div class="col">
         <button type="submit-col-7" class="float-right btn btn-primary col-2 mt-3 l-3">登録へ</button>
