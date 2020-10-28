@@ -4,12 +4,9 @@ class TeamsController < ApplicationController
   end
   
     def create
-        @team=Team.new(team_params)
-      if @team.save
-          redirect_to root_path
-      else
-        render:new
-      end
+      @team=Team.new(team_params)
+      @team.save!
+      redirect_to root_path
     end
     
     private
