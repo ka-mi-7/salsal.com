@@ -42,7 +42,11 @@
       
       <div class="form-group h4 col-md-6 p-0 text-white">
         <label for="inputPassword4">Password</label>
-        <%= f.password_field :password_digest, class: 'form-control form-control-lg', placeholder: "password" %>
+        <%= f.password_field :password, class: 'form-control form-control-lg', placeholder: "password" %>
+      </div>
+      <div class="form-group h4 col-md-6 p-0 text-white">
+        <label for="inputPasswordConfirmation4">Password確認用</label>
+        <%= f.password_field :password_confirmation, class: 'form-control form-control-lg', placeholder: "password_confirmation" %>
       </div>
       <button type="submit" class="float-right btn btn-primary col-2 mt-3 l-3">登録へ</button>
     <% end %>

@@ -15,6 +15,6 @@ class TeamsController < ApplicationController
     private
     
     def team_params
-      params.require(:team).permit(:name,:leader_name,:phone_number,:email,:level_type,:password_digest,:image)
+      params.require(:team).permit(:name,:leader_name,:phone_number,:email,:level_type,:password, :password_confirmation,:image)
     end  
   end
