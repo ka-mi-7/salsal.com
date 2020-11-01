@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root to: 'recruits#index'
   
   resources :teams, only: [:new, :create] 
