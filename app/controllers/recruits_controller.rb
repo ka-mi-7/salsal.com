@@ -13,6 +13,7 @@ class RecruitsController < ApplicationController
   
   def create
     @recruit = Recruit.new(recruit_params)
+    @recruit.team = current_team
     if @recruit.save
       redirect_to root_path
     else
@@ -23,6 +24,6 @@ class RecruitsController < ApplicationController
   private
   
   def recruit_params
-    params.require(:recruit).permit(:team_id, :prefecture, :address, :level_type, :start_at, :end_at, :comment)
+    params.require(:recruit).permit(:prefecture, :address, :level_type, :start_at, :end_at, :comment)
   end  
 end
