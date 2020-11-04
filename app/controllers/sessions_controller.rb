@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    team = Team.find_by(email: params[:session][:email].downcase)
+    team = Team.find_by(email: params[:session][:email])
     if team && team.authenticate(params[:session][:password])
       log_in team
       redirect_to root_path
