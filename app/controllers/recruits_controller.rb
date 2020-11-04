@@ -1,6 +1,10 @@
 class RecruitsController < ApplicationController
   def index
-    @recruits = Recruit.order(id: :desc)
+    @recruits = if params[:keyword]
+                  Recruit.where('comment like ?', "%#{params[:keyword]}%").order(id: :desc)
+                else
+                  Recruit.order(id: :desc)
+                end
   end
 
   def new
