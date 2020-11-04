@@ -1,5 +1,11 @@
 <% provide(:title, "Log in") %>
+    <%= link_to root_path do %> 
+      <button class="float-right mr-3 bg-info btn btn-info">TOPに戻る</button>
+    U<% end %>
 <h1>Log in</h1>
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -14,6 +20,5 @@
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>

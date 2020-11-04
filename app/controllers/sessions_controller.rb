@@ -4,15 +4,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      # ユーザーログイン後にユーザー情報のページにリダイレクトする
+    team = Team.find_by(email: params[:session][:email])
+    if team && team.authenticate(params[:session][:password])
+      log_in team
+      redirect_to root_path
     else
-      # エラーメッセージを作成する
+        flash[:danger] = 'emaliまたはpasswordが間違っています'
       render 'new'
     end
   end
 
   def destroy
+    lod_out
+    redirect_to root_url
   end
 end

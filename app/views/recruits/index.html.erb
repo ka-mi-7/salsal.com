@@ -19,7 +19,15 @@
       <% end %>
     </div>
     <div class="col"> 
+      <% if logged_in? %>
+        <%= link_to logout_path , method: "delete" do %>
+          <button type="button" class="btn btn-success ml-3 mt-3 shadow btn-lg">ログアウト</button>
+        <% end %>
+      <% else %>
+        <%= link_to login_path do %>
       <button type="button" class="btn btn-success ml-3 mt-3 shadow btn-lg">ログイン</button>
+        <% end %>
+      <% end %>
     </div>
     <div class="col">
       <button type="button" class="btn btn-success mt-3 shadow btn-lg ">問合せ</button>
