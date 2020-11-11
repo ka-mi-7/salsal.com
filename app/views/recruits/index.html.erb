@@ -39,16 +39,18 @@
   </div>
   <div class="container">
     <div class="col"> </div>
-    <form>
+    <%= form_tag(root_path, method: 'get') do %>
       <div class="row">
         <div class="col">
-          <div class="form-group text-white "> <label for="pref">エリア</label> <select class="form-control" id="pref">
-                <option value="">都道府県</option>
-                <% prefectures.each do |p| %>
-                  <option value="<%= p %>"><%= p %></option>
-                <% end %>
-                
-              </select> </div>
+          <div class="form-group text-white ">
+            <label for="pref">エリア</label>
+            <select class="form-control" id="pref" name="pref">
+              <option value="">都道府県</option>
+              <% prefectures.each do |p| %>
+                <option value="<%= p %>" <%= (@pref == p) ? 'selected' : '' %>><%= p %></option>
+              <% end %>
+            </select>
+          </div>
         </div>
         <div class="col">
           <div class="form-group text-success "> <label class="tema-level">チームレベル</label> <select class="form-control">
@@ -60,16 +62,22 @@
                 </select> </div>
         </div>
         <div class="col">
-          <div class="form-group"> <label for="date">日時</label> <input type="date" class="form-control" id="date"> </div>
+          <div class="form-group">
+            <label for="date">日時</label>
+            <input type="date" class="form-control" id="date" name="date" value=<%= @date %>>
+            </div>
         </div>
         <div>
           <div class="col">
-            <div class="form-group text-white"> <label for="keyword">キーワード</label> <input type="text" class="form-control" id="keyword"> </div>
+            <div class="form-group text-white">
+              <label for="keyword">キーワード</label>
+              <%= text_field_tag :keyword, @keyword, { class: 'form-control' } %>
+            </div>
           </div>
         </div>
-        <div class="col"> <br> <button type="button" class="btn btn-primary mt-2">search</button></div>
+        <div class="col"> <br> <button type="submit" class="btn btn-primary mt-2">search</button></div>
       </div>
-    </form>
+    <% end %>
     <div class="container">
       <div class="row mt-4 col-3 text-white">
         <h2 class="bg-success p-2">対戦相手募集中</h2>
@@ -102,7 +110,9 @@
               <td>
                 <%= recruit.comment %>
                 </td>
-              <td></td>
+              <td>
+                <%= image_tag(recruit.team.image_url, width: '100px') if recruit.team.image? %>
+              </td>
             </tr>
           <% end %>
         </tbody>
