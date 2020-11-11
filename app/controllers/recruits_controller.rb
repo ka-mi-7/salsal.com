@@ -1,10 +1,14 @@
 class RecruitsController < ApplicationController
   def index
-    @recruits = if params[:keyword]
-                  Recruit.where('comment like ?',"%#{params[:keyword]}%").order(id: :desc)
-                else
-                  Recruit.order(id: :desc)
-                end
+    @keyword = params[:keyword].presence || ''
+    @pref = params[:pref].presence || ''
+    
+    @recruits = Recruit.all
+    
+    @recruits = @recruits.where('comment like ?',"%#{params[:keyword]}%") if @keyword.present?
+    @recruits = @recruits.where(prefecture: params[:pref]) if @pref.present?
+    
+    @recruits = @recruits.order(id: :desc)
   end
 
   def new
