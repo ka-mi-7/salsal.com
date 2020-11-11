@@ -39,7 +39,7 @@
   </div>
   <div class="container">
     <div class="col"> </div>
-    <form>
+    <%= form_tag(root_path, method: 'get') do %>
       <div class="row">
         <div class="col">
           <div class="form-group text-white "> <label for="pref">エリア</label> <select class="form-control" id="pref">
@@ -64,12 +64,15 @@
         </div>
         <div>
           <div class="col">
-            <div class="form-group text-white"> <label for="keyword">キーワード</label> <input type="text" class="form-control" id="keyword"> </div>
+            <div class="form-group text-white">
+              <label for="keyword">キーワード</label>
+              <%= text_field_tag :keyword, '', { class: 'form-control' } %>
+            </div>
           </div>
         </div>
-        <div class="col"> <br> <button type="button" class="btn btn-primary mt-2">search</button></div>
+        <div class="col"> <br> <button type="submit" class="btn btn-primary mt-2">search</button></div>
       </div>
-    </form>
+    <% end %>
     <div class="container">
       <div class="row mt-4 col-3 text-white">
         <h2 class="bg-success p-2">対戦相手募集中</h2>
