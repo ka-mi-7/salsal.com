@@ -102,7 +102,9 @@
               <td>
                 <%= recruit.comment %>
                 </td>
-              <td></td>
+              <td>
+                <%= image_tag(recruit.team.image_url, width: '100px') if recruit.team.image? %>
+              </td>
             </tr>
           <% end %>
         </tbody>
