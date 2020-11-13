@@ -1,10 +1,16 @@
 class RecruitsController < ApplicationController
   def index
-    @recruits = if params[:keyword]
-                  Recruit.where('comment like ?',"%#{params[:keyword]}%").order(id:desc)
-                else
-                  Recruit.order(id: :desc)
-                end
+    @keyword = params[:kerword].presence||''
+    @pref = params[:pref].presence||'' 
+    @date = params[:date].presence||'' 
+   
+    @recruit = Recruit.all
+    
+    @recruits = recruits.where('commit like?',"%#{params[:kerword]}%") if kerword.present?
+    @recruits = recruits.where(prefecture:params[:pref]) if @pref.present?
+    @recruits = recuruts.where(start_at:@date.to_date.beggining_of_day..@date.to_date.end_of_day)if @date.present?
+    
+    @recruits = @recuruits.order(id:desc) 
   end
 
   def new
