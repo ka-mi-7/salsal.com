@@ -47,7 +47,7 @@
               <select class="form-control" id="pref">
                 <option value="">都道府県</option>
                 <% prefectures.each do |p| %>
-                  <option value="<%= p %>"><%= p %></option>
+                  <option value="<%= p %>" <%= (@pref == p) ? 'selected' : '' %>><%= p %></option>
                 <% end %>
                 
               </select>
@@ -72,7 +72,7 @@
           <div class="col">
             <div class="form-group text-white">
               <label for="keyword">キーワード</label>
-              <%= text_field_tag :@keyword, {class:'form-control'}%>
+              <%= text_field_tag :keyword, @keyword, { class: 'form-control' }%>
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@
                 <%= recruit.comment %>
                 </td>
               <td>
-                <%= image_tag(recruit.team.image_url,width: '100px') if recruit.team.imege? %>
+                <%= image_tag(recruit.team.image_url, width: '100px') if recruit.team.image? %>
               </td>
             </tr>
           <% end %>

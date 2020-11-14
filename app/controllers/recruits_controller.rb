@@ -18,7 +18,7 @@ class RecruitsController < ApplicationController
   end
   
   def show
-    @recruits = Recruit.find(params[:id])
+    @recruit = Recruit.find(params[:id])
   end
   
   def create
