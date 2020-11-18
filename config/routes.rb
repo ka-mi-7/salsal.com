@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'recruits#index'
   
-  resources :teams, only: [:new, :create] 
+  resources :teams, only: [:new, :create, :edit, :update] 
   resources :recruits
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
