@@ -3,12 +3,12 @@ class RecruitsController < ApplicationController
     @keyword = params[:keyword].presence||''
     @pref = params[:pref].presence||'' 
     @date = params[:date].presence||'' 
-   
+
     @recruits = Recruit.all
     
     @recruits = @recruits.where('comment like ?',"%#{params[:keyword]}%") if @keyword.present?
     @recruits = @recruits.where(prefecture: params[:pref]) if @pref.present?
-    @recruits = @recuruts.where(start_at:@date.to_date.beginning_of_day..@date.to_date.end_of_day) if @date.present?
+    @recruits = @recruits.where(start_at: @date.to_date.beginning_of_day..@date.to_date.end_of_day) if @date.present?
     
     @recruits = @recruits.order(id: :desc) 
   end
