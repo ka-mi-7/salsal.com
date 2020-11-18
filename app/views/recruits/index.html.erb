@@ -49,19 +49,19 @@
                 <% prefectures.each do |p| %>
                   <option value="<%= p %>" <%= (@pref == p) ? 'selected' : '' %>><%= p %></option>
                 <% end %>
-                
               </select>
           </div>
         </div>
         <div class="col">
           <div class="form-group text-success "> 
             <label class="team-level">チームレベル</label> 
-                <select class="form-control" > 
-                  <option>★★★★★</option>
-                  <option>★★★★</option>
-                  <option>★★★</option>
-                  <option>★★</option>
-                  <option>★</option>
+                <select class="form-control" name="level_type" > 
+                  <option value=""></option>
+                  <option value="5" <%= (@level_type == "5") ? 'selected' : '' %>>★★★★★</option>
+                  <option value="4" <%= (@level_type == "4") ? 'selected' : '' %>>★★★★</option>
+                  <option value="3" <%= (@level_type == "3") ? 'selected' : '' %>>★★★</option>
+                  <option value="2" <%= (@level_type == "2") ? 'selected' : '' %>>★★</option>
+                  <option value="1" <%= (@level_type == "1") ? 'selected' : '' %>>★</option>
                 </select> </div>
         </div>
         <div class="col">
