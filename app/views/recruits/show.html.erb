@@ -24,7 +24,7 @@
             <p class="pl-5 mb-5"><%= @recruit.comment %></p>
         </div>
         <div class="col-md-5 mt-5 ">
-            <img src="/team A.jpg" alt="チーム写真">
+          <%= image_tag(@recruit.team.image_url, width:'300px') if @current_team.image? %>
         </div>  
       </div> 
     </div>
