@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200924142826) do
+ActiveRecord::Schema.define(version: 20201125132634) do
 
   create_table "recruits", force: :cascade do |t|
     t.integer  "team_id",    null: false
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20200924142826) do
     t.text     "comment",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "team_id",                null: false
+    t.integer  "recruit_id",             null: false
+    t.integer  "status",     default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["recruit_id"], name: "index_requests_on_recruit_id"
+    t.index ["team_id"], name: "index_requests_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
