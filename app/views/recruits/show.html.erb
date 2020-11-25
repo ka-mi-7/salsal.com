@@ -32,13 +32,16 @@
         <div class="col">
         </div>  
         <div class="col">
+          <% if current_team.present? && current_team.requests.find_by(recruit: @recruit).present? %>
+            応募済み
+          <% else %>
+            <%= link_to recruit_requests_path(@recruit), method: 'post' do %>
+              <button type="submit" class="float-right btn btn-primary col-2 mt-3 l-3">応募する</button>
+            <% end %>
+          <% end %>
         </div>
-        
-        <button type="submit" class="float-right btn btn-primary col-2 mt-3 l-3">応募する</button>
-        
         <div class="col">
         </div>
-        <div class="col">
-        </div>
+    </div>
         
   </div>
