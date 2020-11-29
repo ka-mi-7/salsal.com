@@ -29,19 +29,49 @@
       </div> 
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-4">
         </div>  
-        <div class="col">
+        <div class="col-4 text-center">
           <% if current_team.present? && current_team.requests.find_by(recruit: @recruit).present? %>
-            応募済み
+            <div class="alert alert-danger text-center" role="alert">応募済み</div>
           <% else %>
             <%= link_to recruit_requests_path(@recruit), method: 'post' do %>
-              <button type="submit" class="float-right btn btn-primary col-2 mt-3 l-3">応募する</button>
+              <button type="submit" class="btn btn-primary col-md-4 mt-3 l-3">応募する</button>
             <% end %>
           <% end %>
         </div>
-        <div class="col">
+        <div class="col-4">
         </div>
     </div>
-        
+    <div class ="container">
+      <div class ="row">
+        <h2 class ="col-6 text-center mt-4 bg-info text-white">このチームに応募しているチーム</h2>
+      </div> 
+      <table class="table mt-4 table-secondary">
+        <thead class ="thead-secondary">
+          <tr>
+            <th scope ="col">チーム名</th>
+            <th scope ="col">レベル</th>
+            <th scope ="col">チームコメント</th>
+          </tr>
+        </thead>
+         <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>★</td>
+      <td>宜しくお願い致します！</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>★★</td>
+      <td>宜しくお願い致します。</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>★★★</td>
+      <td>楽しみましょう</td>
+    </tr>
+  </tbody>
+      </table>
+    </div>
   </div>
