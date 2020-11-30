@@ -21,6 +21,7 @@ class RecruitsController < ApplicationController
   
   def show
     @recruit = Recruit.find(params[:id])
+    @requests = @recruit.requests 
   end
   
   def create

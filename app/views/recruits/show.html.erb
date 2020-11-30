@@ -55,23 +55,13 @@
             <th scope ="col">チームコメント</th>
           </tr>
         </thead>
-         <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>★</td>
-      <td>宜しくお願い致します！</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>★★</td>
-      <td>宜しくお願い致します。</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>★★★</td>
-      <td>楽しみましょう</td>
-    </tr>
-  </tbody>
+          <tbody>
+            <% @requests.each do |request| %>
+            <tr>
+              <%= request.team.name %>
+            </tr>
+            <% end %>
+          </tbody>
       </table>
     </div>
   </div>
