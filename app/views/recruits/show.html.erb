@@ -34,7 +34,7 @@
         <div class="col-4 text-center">
           <% if current_team.present? && current_team.requests.find_by(recruit: @recruit).present? %>
             <div class="alert alert-danger text-center" role="alert">応募済み</div>
-          <% else %>
+          <% elsif current_team.present? && current_team != @recruit.team %>
             <%= link_to recruit_requests_path(@recruit), method: 'post' do %>
               <button type="submit" class="btn btn-primary col-md-4 mt-3 l-3">応募する</button>
             <% end %>
@@ -52,16 +52,28 @@
           <tr>
             <th scope ="col">チーム名</th>
             <th scope ="col">レベル</th>
-            <th scope ="col">チームコメント</th>
+            <th scope ="col">ステータス</th>
+            <th></th>
           </tr>
         </thead>
-          <tbody>
-            <% @requests.each do |request| %>
+        <tbody>
+          <% @requests.each do |request| %>
             <tr>
-              <%= request.team.name %>
-            </tr>
-            <% end %>
-          </tbody>
+              <td>
+                <%= request.team.name %>
+              </td>
+              <td>
+                <%= request.team.level_type %>
+              </td>
+              <td>
+                <%= request.display_status %>
+              </td>
+              <td>
+                
+              </td>
+            </tr>  
+          <% end %>
+        </tbody>
       </table>
     </div>
   </div>
