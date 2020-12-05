@@ -68,8 +68,12 @@
               <td>
                 <%= request.display_status %>
               </td>
-              <td>
-                
+              <td class = "text-center">
+              <% if %>
+              <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">承認</button>
+              <% else %> 
+              <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">拒否</button>
+              <% end %>
               </td>
             </tr>  
           <% end %>
