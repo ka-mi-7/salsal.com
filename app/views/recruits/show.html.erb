@@ -53,7 +53,9 @@
             <th scope ="col">チーム名</th>
             <th scope ="col">レベル</th>
             <th scope ="col">ステータス</th>
-            <th></th>
+            <% if @recruit.team == current_team %>
+              <th></th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
@@ -68,13 +70,15 @@
               <td>
                 <%= request.display_status %>
               </td>
-              <td class = "text-center">
-              <% if %>
-              <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">承認</button>
-              <% else %> 
-              <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">拒否</button>
+              <% if @recruit.team == current_team %>
+                <td class = "text-center">
+                <% if true %>
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">承認</button>
+                <% else %> 
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">拒否</button>
+                <% end %>
+                </td>
               <% end %>
-              </td>
             </tr>  
           <% end %>
         </tbody>
