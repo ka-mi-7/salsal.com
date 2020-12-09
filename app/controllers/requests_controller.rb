@@ -5,8 +5,16 @@ class RequestsController < ApplicationController
     redirect_to recruit_path(params[:recruit_id])
   end
   
-  def update
-    # TODO update status
+  def approve
+    recruit = Recruit.find(params[:recruit_id])
+    request = recruit.requests.find(params[:id])
+    request.approval!
+    redirect_to recruit_path(params[:recruit_id])
+  end
+  
+  def disapprove
+    request = Recruit.find(params[:recruit_id]).requests.find(params[:id])
+    request.disapproval!
     redirect_to recruit_path(params[:recruit_id])
   end
 end

@@ -72,11 +72,14 @@
               </td>
               <% if @recruit.team == current_team %>
                 <td class = "text-center">
-                <% if true %>
-                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">承認</button>
-                <% else %> 
-                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">拒否</button>
-                <% end %>
+                  <% if request.unconfirmed? %>
+                    <%= link_to approve_recruit_request_path(@recruit, request), method: 'patch' do %>
+                      <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">承認</button>
+                    <% end %>
+                    <%= link_to disapprove_recruit_request_path(@recruit, request), method: 'patch' do %>
+                      <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">拒否</button>
+                    <% end %>
+                  <% end %>
                 </td>
               <% end %>
             </tr>  
