@@ -13,6 +13,9 @@ class RecruitsController < ApplicationController
     @recruits = @recruits.where(level_type: params[:level_type]) if @level_type.present?
     
     @recruits = @recruits.order(id: :desc) 
+    
+    @recruits = Recruit.find(session[:team_id])
+    
   end
 
   def new
