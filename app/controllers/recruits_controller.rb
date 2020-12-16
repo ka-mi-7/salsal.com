@@ -12,9 +12,7 @@ class RecruitsController < ApplicationController
     @recruits = @recruits.where(start_at: @date.to_date.beginning_of_day..@date.to_date.end_of_day) if @date.present?
     @recruits = @recruits.where(level_type: params[:level_type]) if @level_type.present?
     
-    @recruits = @recruits.order(id: :desc) 
-    
-    @recruits = Recruit.find(session[:team_id])
+    @recruits = @recruits.order(id: :desc)
     
   end
 

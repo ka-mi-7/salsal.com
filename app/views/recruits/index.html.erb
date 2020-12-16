@@ -14,6 +14,7 @@
       <button type="button" class="btn btn-success mt-3 shadow btn-lg">サイトマップ</button>
     </div>
     <div class="col">
+      <% if logged_in? %>
         <%= link_to edit_team_path(current_team.id ) do %>
           <button type="button" class="btn btn-success ml-3 mt-3 shadow btn-lg">マイページ</button>
         <% end %>
@@ -34,13 +35,16 @@
           <button type="button" class="btn btn-success ml-3 mt-3 shadow btn-lg">ログイン</button>
         <% end %>
       <% end %>
-      
     </div>
     <div class="col">
       <button type="button" class="btn btn-success mt-3 shadow btn-lg ">問合せ</button>
     </div>  
   </div>
-  
+  <div class="row">
+    <div class="col-12 text-right text-white">
+      <h3><%= current_team&.leader_name %></h3>
+    </div>
+  </div>  
   <div class="text-center ">
     <h1 class="display-1 mt-5">Sal.com</h1>
     <h5 class="mt-1">〜シンプルにフットサルしたい人のマッチングサイト〜</h5>
